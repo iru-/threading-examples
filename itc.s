@@ -15,20 +15,20 @@
 	mov r9, [r8]    ; load CFA into W
 	add r8, 8       ; advance IP to next word in thread
 	mov r10, [r9]   ; fetch machine code to execute the word into X
-    jmp r10
+	jmp r10
 %endmacro
 
 ; enter the execution of a forth word
 enter:
 	push r8         ; push IP onto R
-    lea r8, [r9+8]  ; move IP to the word's body (X+8)      
-    next
+	lea r8, [r9+8]  ; move IP to the word's body (X+8)
+	next
 
 ; return from a forth word
 exit: dq _exit
 _exit:
 	pop r8          ; pop R onto IP
-    next
+	next
 
 ;
 ; Initialization
@@ -64,7 +64,7 @@ _test0:
 	dq exit
 
 test1:
-    dq enter        ; CFA: code field address
+	dq enter        ; CFA: code field address
 _test1:
 	dq test2
 	dq exit
