@@ -12,6 +12,9 @@ end
 # rsp    R
 
 define state
+  echo Stack\n
+  stk
+  echo Regs\n
   print/z $r8
   print/z $r9
   print/z $r10
